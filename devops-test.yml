@@ -1,0 +1,28 @@
+name: Gallery Project CI Test
+
+on: [push]
+
+jobs:
+  check-gallery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check HTML File
+        run: |
+          if [ -f index.html ]; then
+            echo "✅ ผ่าน: พบไฟล์ index.html"
+          else
+            echo "❌ ข้อผิดพลาด: ไม่พบไฟล์ index.html"
+            exit 1
+          fi
+
+      - name: Check Image File
+        run: |
+          if [ -f my-profile.png ] || [ -f my-profile.png ]; then
+            echo "✅ ผ่าน: พบไฟล์รูปภาพสำหรับแสดงผลในแกลเลอรีแล้ว!"
+          else
+            echo "❌ ข้อผิดพลาด: คุณลืมใส่ไฟล์รูปภาพ my-profile หรือตั้งชื่อไม่ตรง!"
+            exit 1
+          fi
