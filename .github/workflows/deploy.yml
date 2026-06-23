@@ -14,7 +14,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          password: ${{ secrets.SERVER_PASS }} # ✨ เปลี่ยนจาก key เป็น password ตรงนี้ครับ
           script: |
             cd /var/www/html/s683190102/PunPun
             git fetch origin
